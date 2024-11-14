@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minix Text Editor Components Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1, p {
+            color: #333;
+            text-align: center;
+        }
+        
+        p a{
+            text-decoration: none;
+            color: blue;
+        }
+
+        .component {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid whitesmoke;
+            background-color: whitesmoke;
+        }
+
+        .component h2 {
+            margin-top: 0;
+            color: orange;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Minix Text Editor Components Guide</h1>
+     <p><a href="structure.html">#Guide To Text Editor Code Structure</a></p>
+     <p><a href="index.html">#Back To Text Editor</a></p>
+    <div class="component">
+        <h2>Title Input and Help Button</h2>
+        <p><strong>Title Input:</strong> Lets users type a title for the document.</p>
+        <p><strong>Help Button:</strong> Links to a help page with instructions for using the editor.</p>
+    </div>
+
+    <div class="component">
+        <h2>Reset Button</h2>
+        <p><strong>Purpose:</strong> Clears all text and formatting, giving users a fresh start.</p>
+        <p><strong>Use:</strong> Helpful for discarding current work without refreshing the page. At some point it also displays the number of characters on the editor</p>
+    </div>
+
+    <div class="component">
+        <h2>Editor Area</h2>
+        <p><strong>Functionality:</strong> Main area where users type and style text.</p>
+        <p><strong>JavaScript Integration:</strong> JavaScript commands modify the text styling based on user selections.</p>
+    </div>
+
+    <div class="component">
+        <h2>Formatting Buttons</h2>
+        <p><strong>Bold:</strong> Makes selected text bold.</p>
+        <p><strong>Italic:</strong> Slants the selected text for emphasis.</p>
+        <p><strong>Underline:</strong> Underlines the selected text for visibility.</p>
+    </div>
+
+    <div class="component">
+        <h2>Read-Only Toggle</h2>
+        <p><strong>Purpose:</strong> Toggles between editable and read-only modes to prevent accidental changes.</p>
+    </div>
+
+    <div class="component">
+        <h2>Menu Toggle</h2>
+        <p><strong>Functionality:</strong> Toggles the visibility of main controls, allowing a cleaner interface when needed.</p>
+    </div>
+    
+    <div class="component">
+        <h2>Font Styling Section</h2>
+        <p><strong>Headings:</strong> Allows application of heading levels H1-H6 to selected text.</p>
+        <p><strong>Font Family Selector:</strong> Provides different font options to style the text uniquely.</p>
+    </div>
+
+    <div class="component">
+        <h2>Coloring Section</h2>
+        <p><strong>Text Color:</strong> Changes the color of selected text.</p>
+        <p><strong>Highlight Color:</strong> Applies a background color to selected text for emphasis.</p>
+    </div>
+
+    <div class="component">
+        <h2>Speech Features (Experimental)</h2>
+        <p><strong>Speech-to-Text:</strong> Converts spoken input to text in the editor.</p>
+        <p><strong>Text-to-Speech:</strong> Reads out text, helpful for proofreading and visually impaired users.</p>
+    </div>
+</body>
+</html>

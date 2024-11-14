@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minix Text Editor Code Structure</title>
+</head>
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+header {
+    background-color: orange;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+header p a {
+    text-decoration: none;
+    color: white;
+}
+
+main {
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: orange;
+    margin-top: 0;
+}
+
+pre {
+    background-color: #f1f1f1;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+    font-size: 0.9em;
+}
+</style>
+<body>
+    <header>
+        <h1>Minix Text Editor Code Structure</h1>
+        <p><a href="help.html">#Text Editor Components Guide</a></p>
+     <p><a href="index.html">#Back To Text Editor</a></p>
+    </header>
+    <main>
+        <section id="html-structure">
+            <h2>1. HTML Structure</h2>
+            <p>The HTML structure defines the layout and components of the editor. Here’s a breakdown:</p>
+
+            <h3>Title Section</h3>
+            <p>The title section includes an input field for the editor's title and a help button for additional support.</p>
+            <pre><code>&lt;div id="title-contents"&gt;
+    &lt;input id="title" type="text" placeholder="Title..." value="The real Moby Dick"&gt;
+    &lt;span id="help"&gt;&lt;a href="help.html" style="text-decoration: none; color: rgb(0, 110, 255);"&gt;&excl;&lt;/a&gt;&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+
+            <h3>Editor Section</h3>
+            <p>The main editable area is made with the <code>contenteditable</code> attribute, allowing users to directly edit text.</p>
+            <pre><code>&lt;div id="editor" contenteditable="true"&gt;...&lt;/div&gt;</code></pre>
+
+            <h3>Controls Section</h3>
+            <p>The control section contains buttons for styling (bold, italic, underline) and menus for advanced styling and speech options.</p>
+            <pre><code>&lt;div id="controls"&gt;...&lt;/div&gt;</code></pre>
+        </section>
+
+        <section id="css-styling">
+            <h2>2. CSS Styling</h2>
+            <p>The CSS file <code>styles.css</code> provides layout and styling for each component.</p>
+
+            <h3>Title and Notice</h3>
+            <p>The title and notice holder are styled with inline properties to control their appearance and layout.</p>
+            <pre><code>#title-contents {
+    display: flex;
+    align-items: center;
+    ...
+}</code></pre>
+
+            <h3>Editor</h3>
+            <p>The editor area uses a border and padding for a neat, accessible look and feel.</p>
+            <pre><code>#editor {
+    border: 1px solid #ccc;
+    padding: 10px;
+    ...
+}</code></pre>
+
+            <h3>Control Buttons</h3>
+            <p>Buttons are styled with distinct properties to enhance usability, like font weight and style for bold, italic, and underline.</p>
+            <pre><code>button {
+    cursor: pointer;
+    ...
+}</code></pre>
+        </section>
+
+        <section id="javascript-functionality">
+            <h2>3. JavaScript Functionality</h2>
+            <p>The JavaScript files <code>script.js</code> and <code>speech.js</code> control editor functions like bold, italic, and speech-to-text.</p>
+
+            <h3>Text Formatting</h3>
+            <p>Functions allow text formatting by using <code>execCommand</code> to make text bold, italic, or underlined.</p>
+            <pre><code>document.getElementById('boldButton').onclick = function() {
+    document.execCommand('bold');
+};</code></pre>
+
+            <h3>Font and Color Selection</h3>
+            <p>Dropdown menus allow changing font family, font size, text color, and highlighting.</p>
+            <pre><code>document.getElementById('fontSelect').addEventListener('change', function() {
+    document.execCommand('fontName', false, this.value);
+});</code></pre>
+
+            <h3>Speech Recognition</h3>
+            <p>The <code>speech.js</code> file includes speech-to-text and text-to-speech functions, enabling accessibility options.</p>
+            <pre><code>const recognition = new webkitSpeechRecognition();
+recognition.onresult = function(event) {
+    document.getElementById('editor').innerText += event.results[0][0].transcript;
+};</code></pre>
+        </section>
+    </main>
+</body>
+
+</html>

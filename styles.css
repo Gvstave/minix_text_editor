@@ -1,0 +1,203 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body,
+html {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #f0f0f0;
+}
+
+button {
+    cursor: pointer;
+}
+
+button, input,
+#back-btn,
+#title,
+#editor {
+    outline: none;
+    border: none;
+    letter-spacing: 0.5px;
+    caret-color: orange;
+    background-color: inherit;
+}
+
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+#title-contents {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+    border-bottom: 1px solid none;
+    background-color: inherit;
+}
+
+#title {
+    width: 100%;
+    font-size: 24px;
+    font-weight: bold;
+    color: initial;
+}
+
+#help {
+    transition: transform 0.5s;
+    animation: helpAnime 1s ease-in-out infinite;
+}
+
+@keyframes helpAnime {
+    0%, 100% {
+        scale: 1;
+    }
+    50% {
+        scale: 1.6;
+    }
+}
+
+#editor {
+    flex: 1;
+    padding: 40px 20px 20px 20px;
+    background-color: white;
+    overflow-y: auto;
+    word-spacing: normal;
+    letter-spacing: 0.7px;
+    line-height: 1.6;
+    resize: vertical;
+    white-space: pre-wrap;
+}
+
+#editor::-webkit-scrollbar {
+    width: 4px;
+}
+
+#editor::-webkit-scrollbar-track {
+    background: inherit;
+}
+
+#editor::-webkit-scrollbar-thumb {
+    background-color: lightgray;
+    border-radius: 4px;
+    height: 90px;
+}
+
+#notice-holder {
+    display: none;
+    top: 20px;
+    margin-top: 30px;
+    position: absolute;
+    padding: 10px;
+    background: transparent;
+    width: 100%;
+}
+
+.notice {
+    display: block;
+    background-color: orange;
+    text-align: center;
+    padding: 2px 22px;
+    font-size: 14px;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.notice-animations {
+    transition: transform 0.5s;
+    animation: noticeAnime 1s ease-in-out infinite;
+}
+
+@keyframes noticeAnime {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+#controls {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: white;
+}
+
+#more {
+    padding-bottom: 20px;
+    display: none;
+}
+
+#more.open {
+    display: block;
+}
+
+#less {
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: inherit;
+}
+
+#less span:nth-of-type(1) {
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 3px;
+}
+
+#top,
+#bottom,
+#experimental {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#bottom input {
+    border: none;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+}
+
+#experimental {
+    text-align: center;
+}
+
+.selected {
+    background-color: orange;
+}
+
+select {
+    border: none;
+    background-color: inherit;
+    padding: 0px;
+    border-left: 1px solid gray;
+    border-right: 1px solid gray;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    color: gray;
+    margin: 4px 0px;
+}
+
+.readonly {
+    display: block;
+}
+
+.block {
+    margin: 20px 0px 5px 0px;
+    display: block;
+    font-size: unset;
+    color: orange;
+}
