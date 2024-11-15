@@ -177,6 +177,11 @@ button, input,
     transform: scale(1.4);
 }
 
+.selected-more {
+    background-color: lightgray;
+    border-radius: 100%;
+    }
+
 label {
     display: block;
     font-size: 14px;
