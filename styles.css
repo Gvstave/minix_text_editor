@@ -2,24 +2,31 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;
 }
 
-body,
-html {
+body, html {
     height: 100%;
     display: flex;
     flex-direction: column;
-    background-color: #f0f0f0;
+    background-color: white;
+}
+
+body {
+    scroll-behavior: smooth;
+    opacity: 0;
+    transition: opacity 1s ease, background-color 1s, color 1s;
+}
+
+body.loaded {
+    opacity: 1;
 }
 
 button {
     cursor: pointer;
 }
 
-button, input,
-#back-btn,
-#title,
+button, input, 
+#title, 
 #editor {
     outline: none;
     border: none;
@@ -36,17 +43,15 @@ button, input,
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
-    padding: 10px;
-    border-bottom: 1px solid none;
-    background-color: inherit;
+    padding: 10px 15px 10px 25px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    z-index: 1;
 }
 
 #title {
     width: 100%;
     font-size: 24px;
     font-weight: bold;
-    color: initial;
 }
 
 #help {
@@ -65,8 +70,7 @@ button, input,
 
 #editor {
     flex: 1;
-    padding: 40px 20px 20px 20px;
-    background-color: white;
+    padding: 40px 15px 20px 25px;
     overflow-y: auto;
     word-spacing: normal;
     letter-spacing: 0.7px;
@@ -77,10 +81,6 @@ button, input,
 
 #editor::-webkit-scrollbar {
     width: 4px;
-}
-
-#editor::-webkit-scrollbar-track {
-    background: inherit;
 }
 
 #editor::-webkit-scrollbar-thumb {
@@ -95,7 +95,6 @@ button, input,
     margin-top: 30px;
     position: absolute;
     padding: 10px;
-    background: transparent;
     width: 100%;
 }
 
@@ -107,6 +106,13 @@ button, input,
     font-size: 14px;
     margin: 0 auto;
     border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.notice:hover {
+    transform: scale(1.05);
 }
 
 .notice-animations {
@@ -126,7 +132,7 @@ button, input,
 #controls {
     width: 100%;
     padding: 10px 20px;
-    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
 }
 
 #more {
@@ -143,7 +149,10 @@ button, input,
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: inherit;
+}
+
+#less button {
+    padding-inline: 4px;
 }
 
 #less span:nth-of-type(1) {
@@ -151,44 +160,28 @@ button, input,
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 3px;
 }
 
-#top,
-#bottom,
+#top, 
+#bottom, 
 #experimental {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-#bottom input {
-    border: none;
-    border-left: 1px solid gray;
-    border-right: 1px solid gray;
-}
-
-#experimental {
     text-align: center;
 }
 
 .selected {
-    background-color: orange;
-}
-
-select {
-    border: none;
-    background-color: inherit;
-    padding: 0px;
-    border-left: 1px solid gray;
-    border-right: 1px solid gray;
+    background-color: lightgray;
+    border-radius: 100%;
+    transform: scale(1.4);
 }
 
 label {
     display: block;
     font-size: 14px;
     color: gray;
-    margin: 4px 0px;
+    text-align: center;
 }
 
 .readonly {
@@ -196,8 +189,7 @@ label {
 }
 
 .block {
-    margin: 20px 0px 5px 0px;
+    margin: 10px 0 0;
     display: block;
-    font-size: unset;
     color: orange;
 }
