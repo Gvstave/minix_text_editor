@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+document.body.classList.add('loaded');
     const title = document.getElementById('title');
     const editor = document.getElementById('editor');
     const toggleBtn = document.getElementById('toggle');
@@ -11,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const clearButton = document.getElementById('notice');
 
     editor.contentEditable = "false";
-    title.disabled = false;
+    title.disabled = true;
 
     function formatText(command, value = null) {
         document.execCommand(command, false, value);
@@ -58,6 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
             editor.contentEditable = "true";
             title.disabled = false;
             noticeHolder.style.display = 'block';
+            title.focus();
         } else {
             editor.contentEditable = "false";
             title.disabled = true;
@@ -68,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Toggle menu function to open and close the menu
     toggleBtn.addEventListener('click', function () {
         more.classList.toggle('open');
-        toggleBtn.classList.toggle('selected');
+      toggleBtn.classList.toggle('selected');
     });
 
     // This function clears the content of the title and editor areas
