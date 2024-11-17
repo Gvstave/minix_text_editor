@@ -197,7 +197,7 @@
             <section id="top">
                 <div id="heads">
                     <label for="heading">Heading</label>
-                    <select id="heading">
+                    <select id="heading" class="disable">
                         <option value="">Normal</option>
                         <option value="h1">Heading 1</option>
                         <option value="h2">Heading 2</option>
@@ -210,7 +210,7 @@
 
                 <div id="fonts">
                     <label for="fontSelect">Font Family</label>
-                    <select id="fontSelect">
+                    <select id="fontSelect" class="disable">
                         <option value="Arial">Arial</option>
                         <option value="Verdana">Verdana</option>
                         <option value="Helvetica">Helvetica</option>
@@ -231,12 +231,12 @@
             <section id="bottom">
                 <span>
                     <label for="color">Text color</label>
-                    <input id="color" type="color" onchange="document.execCommand('foreColor', false, this.value)" />
+                    <input id="color" type="color" onchange="document.execCommand('foreColor', false, this.value)" class="disable"/>
                 </span>
                 <span>
                     <label for="highlight">Highlight</label>
                     <input id="highlight" type="color"
-                        onchange="document.execCommand('hiliteColor', false, this.value)" />
+                        onchange="document.execCommand('hiliteColor', false, this.value)" class="disable"/>
                 </span>
             </section>
 
@@ -248,23 +248,23 @@
                 </span>
                 <span>
                     <label for="speak">Speech-To-Text</label>
-                    <input type="button" class="material-symbols-outlined" value="spatial_speaker" id="speak">
+                    <input type="button" class="material-symbols-outlined disable" value="spatial_speaker" id="speak">
                 </span>
             </section>
         </div>
 
         <div id="less">
             <span>
-                <button id="boldButton" style="font-weight: bold">B</button>
-                <button id="italicButton" style="font-style: italic">I</button>
-                <button id="underlineButton" style="text-decoration: underline">U</button>
+                <button id="boldButton" class="disable" style="font-weight: bold">B</button>
+                <button id="italicButton" class="disable" style="font-style: italic">I</button>
+                <button id="underlineButton" class="disable" style="text-decoration: underline">U</button>
             </span>
             <span class="material-symbols-outlined" id="readonly">
                 import_contacts
             </span>
             <span class="material-symbols-outlined" id="toggle">menu</span>
         </div>
-    </div>
+      </div>
 </body>
 <script> document.addEventListener('DOMContentLoaded', function () {
         const editor = document.getElementById('editor');
