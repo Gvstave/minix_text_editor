@@ -14,11 +14,11 @@ body, html {
 body {
     scroll-behavior: smooth;
     opacity: 0;
-    transition: opacity 1s ease, background-color 1s, color 1s;
 }
 
 body.loaded {
     opacity: 1;
+    transition: opacity 1s ease, background-color 1s, color 1s;
 }
 
 button {
@@ -40,6 +40,7 @@ button, input,
 }
 
 #title-contents {
+    
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -77,6 +78,7 @@ button, input,
     line-height: 1.6;
     resize: vertical;
     white-space: pre-wrap;
+    color: #333;
 }
 
 #editor::-webkit-scrollbar {
@@ -132,9 +134,9 @@ button, input,
 #controls {
     width: 100%;
     padding: 10px 20px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+    box-shadow: -6px 4px 7px rgba(0, 0, 0, 1);
+    transition: background-color 1s, color 1s;
 }
-
 #more {
     padding-bottom: 20px;
     display: none;
@@ -180,7 +182,7 @@ button, input,
 .selected-more {
     background-color: lightgray;
     border-radius: 100%;
-    }
+}
 
 label {
     display: block;
@@ -198,3 +200,4 @@ label {
     display: block;
     color: orange;
 }
+
