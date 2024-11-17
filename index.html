@@ -266,7 +266,25 @@
         </div>
     </div>
 </body>
+<script> document.addEventListener('DOMContentLoaded', function () {
+        const editor = document.getElementById('editor');
+        const controls = document.getElementById('controls');
+        const title = document.getElementById('title-contents');
+        let lastScrollTop = 0; 
+
+        editor.addEventListener('scroll', function () {
+            const currentScrollTop = editor.scrollTop;
+
+            if (currentScrollTop > lastScrollTop) {
+                controls.style.display = 'none';
+            } else {
+                controls.style.display = 'block';
+            }
+
+            lastScrollTop = currentScrollTop;
+        });
+    });
+</script>
 <script src="speech.js"></script>
 <script src="script.js"></script>
-
 </html>
