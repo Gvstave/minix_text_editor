@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 document.body.classList.add('loaded');
+
     const title = document.getElementById('title');
     const editor = document.getElementById('editor');
     const toggleBtn = document.getElementById('toggle');
@@ -10,15 +11,20 @@ document.body.classList.add('loaded');
     const readonly = document.getElementById('readonly');
     const noticeHolder = document.getElementById('notice-holder');
     const clearButton = document.getElementById('notice');
-
+    
+    const disable = document.querySelectorAll('.disable');
+    
+    // This is a code section for disabled elements
     editor.contentEditable = "false";
     title.disabled = true;
-
+    for(const item of disable){
+           item.disabled = true;
+    }
+    
     function formatText(command, value = null) {
         document.execCommand(command, false, value);
     }
-
-    document.getElementById('heading').addEventListener('change', function () {
+   document.getElementById('heading').addEventListener('change', function () {
         const value = this.value;
         if (value) {
             formatText('formatBlock', value);
@@ -58,11 +64,18 @@ document.body.classList.add('loaded');
         if (editor.contentEditable === "false") {
             editor.contentEditable = "true";
             title.disabled = false;
+            for(const item of disable){
+           item.disabled = false;
+    }
             noticeHolder.style.display = 'block';
             title.focus();
         } else {
             editor.contentEditable = "false";
-            title.disabled = true;
+            title.disabled = false;
+            for(const item of disable){
+           item.disabled = true;
+    }
+    
             noticeHolder.style.display = 'none';
         }
     });
